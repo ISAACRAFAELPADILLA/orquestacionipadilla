@@ -1,0 +1,16 @@
+# Configuracion del Volumen
+
+apiVersion: v1                           # Versi�n de la Api
+kind: PersistentVolume                   # Tipo de Objeto: Volumen Persistente
+metadata:
+  name: master-pv                        # Nombre del Objeto
+  labels:
+    type: persistente                    # Etiqueta de tipo (Nada en especial)
+spec:
+  storageClassName: masterfiles          # Nombre de la clase
+  capacity:
+    storage: 12Gi                        # Capacidad en Gigas
+  accessModes:
+    - ReadWriteOnce                      # Modo de Acceso Lectura-Escritura, solo por un nodo al mismo tiempo
+  hostPath:
+    path: "/master"                      # Carpeta de Almacenamiento 

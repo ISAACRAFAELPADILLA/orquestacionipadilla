@@ -1,0 +1,15 @@
+# Configuracion del Volumen de la Reclamacion
+
+apiVersion: v1                          # Versi�n de la Api
+kind: PersistentVolumeClaim             # Tipo de Objeto: Reclamaci�n del volumen persistente
+metadata:
+  name: master-pv-claim                 # Nombre del objeto
+  labels:
+    type: persistente                   # Etiqueta de tipo (Nada en especial)
+spec:
+  storageClassName: masterfiles         # Clase : La misma que en el PersistentVolume
+  accessModes: 
+    - ReadWriteOnce                     # Modo de Acceso Lectura-Escritura, solo por un nodo al mismo tiempo
+  resources:
+    requests:
+      storage: 12Gi                     # Capacidad del Almacenamiento en Gigas

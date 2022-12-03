@@ -1,0 +1,8 @@
+# Configuracion del Namespace
+
+apiVersion: v1          # Versión de la Api
+kind: Namespace         # Tipo de Objeto: Espacio de nombres
+metadata:
+    name: ipadilla       # Nombre del espacio
+    labels:
+      tipo: orquesta    # Etiqueta de tipo

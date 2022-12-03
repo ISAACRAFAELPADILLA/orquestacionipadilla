@@ -1,0 +1,19 @@
+
+# Configuracion del SVC del CRUD
+
+apiVersion: v1                  # Versi�n de la Api
+kind: Service                   # Tipo de objeto: Servicio
+metadata:
+  name: crud-svc                # Nombre del Servicio (Importante)
+  labels:
+    app: sistema-calificacion          # Mismas labels que el Deploy
+    tier: app-web
+spec:
+  type: LoadBalancer            # Tipo Carga balanceada, para las peticiones de ingreso, se usa para servicios "cloud"
+  ports:    
+  - port: 80                   # Puerto y Protocolo
+    targetPort: 80
+    protocol: 'TCP'
+  selector:                     
+    app: sistema-calificacion          # Mismas etiquetas del deployment
+    tier: app-web

@@ -1,0 +1,20 @@
+# Configuracion Ingress
+
+apiVersion: networking.k8s.io/v1                    # Versi�n de la Api
+kind: Ingress                                       # Tipo de Objeto: Ingress
+metadata:
+  name: ingress-ipadilla                             # Nombre del Objeto
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /   # Tipo de acci�n a realizar, en este caso un rewrite (Checar la documentaci�n de la API)
+spec:
+  rules:
+  - host: ipadilla.com                           # Nombre del host
+    http: 
+      paths:
+      - path: /
+        pathType: Prefix                            # Prefijo de la ruta al ingresar a los archivos del crud.
+        backend:
+          service:
+            name: crud-svc                          # Nombre del servicio de nuestro CRUD
+            port:
+              number: 80                          # N�mero de puerto
